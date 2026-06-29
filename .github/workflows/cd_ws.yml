@@ -20,4 +20,4 @@ jobs:
             context: .
             file: ./docker/Dockerfile.ws
             push: true
-            tags: codersintu/week27-monorepo:${{github.sha}}
+            tags: codersintu/week27-monorepo-ws:${{github.sha}}
