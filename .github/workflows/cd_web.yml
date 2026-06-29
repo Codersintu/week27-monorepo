@@ -1,0 +1,22 @@
+on:
+    push:
+        branches: [ main ]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+         - name: checkout the code
+           uses: actions/checkout@v2
+         
+         - name: docker login
+           uses: docker/login-action@v2
+        
+         - name: build and push docker Image
+           uses: docker/build-push-action@v4
+           with:
+            context: .
+            file: ./docker/Dockerfile.web
+            push: true
+            tags: codersintu/week27-monorepo-web:${{github.sha}}
+            build-args: |
+              DATABASE_URL= ${{ secrets.DATABASE_URL }}
