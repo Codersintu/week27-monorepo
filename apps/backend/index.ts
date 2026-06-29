@@ -4,6 +4,7 @@ import { prismaClient } from "db/client";
 const app = express();
 
 app.use(express.json());
+console.log("Database URL:");
 
 app.get("/users", (req, res) => {
   prismaClient.user.findMany()
