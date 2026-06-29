@@ -21,3 +21,5 @@ jobs:
              file: ./docker/Dockerfile.backend
              push: true
              tags: codersintu/week27-monorepo:${{ github.sha }}
+             build-args: |
+               DATABASE_URL= ${{ secrets.DATABASE_URL }}
